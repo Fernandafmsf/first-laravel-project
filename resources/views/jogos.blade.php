@@ -7,7 +7,8 @@
 </head>
 <body>
   <h1>Testando routes com views </h1>
-  
+  <p>Nome: {{$nome}}</p>  
+  <p>Id: {{$id}}</p>
   <a href="{{route('home-index')}}">Clique aqui</a>
 
 </body>
