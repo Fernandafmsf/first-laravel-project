@@ -11,6 +11,6 @@ class JogosController extends Controller
         //dd("ola mundo"); -> exibe variavel ou mensagem
         $nome = 'Fernanda'; 
         $id=1; //mais seguro passar dados assim visto que nao fica visivel na url 
-        return view ( 'jogos', ['nome'=>$nome, 'id'=>$id] );
+        return view ( 'jogos.index', ['nome'=>$nome, 'id'=>$id] );
     }
 }
