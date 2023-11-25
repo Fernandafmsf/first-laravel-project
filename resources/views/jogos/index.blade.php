@@ -18,15 +18,41 @@
     </div>
 
     <div class="mb-3">
-      <label for="ano">Ano que jogou: </label>
-      <input type="date" name="ano" class="form-control">
+      <label for="ano">Ano de criaçao: </label>
+      <input type="date" name="ano_criacao" class="form-control">
     </div>
 
     <div class="mb-3">
-      <label for="comentario">Comentários: </label>
-      <textarea name="comentario" cols="30" rows="5" class="form-control" placeholder="Comente sobre o jogo..."></textarea>
+      <label for="comentario">Valor: </label>
+      <input type="number" name="valor" class="form-control">
     </div>
   </form>
+
+
+  <h2 class="container">Listagem de jogos</h2>
+  <table class="table container">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Ano de Criaçao</th>
+        <th scope="col">Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach($jogos as $jogo)
+      <tr>
+        <th scope="row">{{$jogo->id}}</th>
+        <td>{{$jogo->nome}}</td>
+        <td>{{$jogo->categoria}}</td>
+        <td>{{$jogo->ano_criacao}}</td>
+        <td>{{$jogo->valor}}</td>
+      </tr>
+    @endforeach
+    </tbody>
+  </table>
+
 
 
 @endsection

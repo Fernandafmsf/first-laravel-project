@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jogo;
 use Illuminate\Http\Request;
 
 class JogosController extends Controller
 {
     public function index()
     {
-        //dd("ola mundo"); -> exibe variavel ou mensagem
-        $nome = 'Fernanda'; 
-        $id=1; //mais seguro passar dados assim visto que nao fica visivel na url 
-        return view ( 'jogos.index', ['nome'=>$nome, 'id'=>$id] );
+        $jogos = Jogo::all(); //pega todos campos e registros da tabela 
+        
+        return view ( 'jogos.index', ['jogos'=>$jogos]  );
     }
 }
