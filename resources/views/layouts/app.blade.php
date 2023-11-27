@@ -21,7 +21,7 @@
   
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/home">Listar</a>
+            <a class="nav-link" href="/jogos/create">Cadastrar</a>
           </li>
           
         </ul>

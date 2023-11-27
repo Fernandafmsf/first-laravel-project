@@ -13,8 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/jogos', [JogosController::class, 'index']);
 
-Route::get('/home', function(){
-  return view('welcome');
-})->name('home-index'); //dando nome pra view welcome, que pode ser usado para chamar a view a partir de um botao 
+//criando grupo com prefixo jogos -> todas as rotas criadas dentro desse grupo terao o prefixo jogos
+Route::prefix('jogos')->group(function(){
+  Route::get('/', [JogosController::class, 'index'])->name('jogos-index');
+  Route::get('/create', [JogosController::class, 'create'])->name('jogos-create');
+  Route::post('/', [JogosController::class, 'store'])->name('jogos-store');
+});//seguindo padrao 
+
+Route::fallback(function(){
+  return "Erro!";
+}); //retorna erro
+
