@@ -25,7 +25,7 @@ class JogosController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit( $id){
         $jogos=Jogo::where('id', $id)->first();
         if(!empty($jogos)){
            
@@ -45,6 +45,11 @@ class JogosController extends Controller
 
         ];
         Jogo::where('id', $id)->update($data);
+        return redirect()->route('jogos-index');
+    }
+
+    public function destroy($id){
+        Jogo::where('id', $id)->delete();
         return redirect()->route('jogos-index');
     }
 }
