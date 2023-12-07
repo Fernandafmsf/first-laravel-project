@@ -25,18 +25,21 @@ class JogosController extends Controller
 
     }
 
-    public function edit( $id){
-        $jogos=Jogo::where('id', $id)->first();
-        if(!empty($jogos)){
-           
-            return view('jogos.edit', ['jogos'=>$jogos]);
-        }else{
-            return redirect()->route('jogos-index');
-        }
+    public function edit(Jogo $jogo){
+        // //$jogos=Jogo::where('id', $id)->first();
+        // //if(!empty($jogos)){
+        //       return view('jogos.edit', compact('jogo'));
+            
+        // }else{
+        //     return redirect()->route('jogos-index');
+        // }
+
+        return view('jogos.edit', compact('jogo'));
         
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, Jogo $jogo){
+        
         $data = [
             'nome' => $request->nome,
             'categoria' => $request->categoria,
@@ -44,12 +47,13 @@ class JogosController extends Controller
             'valor' => $request->valor,
 
         ];
-        Jogo::where('id', $id)->update($data);
+        $jogo->update($data);
         return redirect()->route('jogos-index');
     }
 
-    public function destroy($id){
-        Jogo::where('id', $id)->delete();
+    public function destroy(Jogo $jogo){
+        //Jogo::where('id', $id)->delete();
+        $jogo->delete();
         return redirect()->route('jogos-index');
     }
 }

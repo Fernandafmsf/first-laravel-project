@@ -16,4 +16,8 @@ class Jogo extends Model
         'ano_criacao',
         'valor',
     ]; 
+
+    public function getRouteKeyName(){
+        return 'nome';
+    }
 }

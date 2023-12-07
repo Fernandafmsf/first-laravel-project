@@ -23,9 +23,9 @@ Route::group([
   Route::get('','index')->name('jogos-index');
   Route::get('create','create')->name('jogos-create');
   Route::post('','store')->name('jogos-store');
-  Route::get('{id}/edit','edit')->name('jogos-edit');
-  Route::put('{id}', 'update')->name('jogos-update');
-  Route::delete('{id}', 'destroy')->name('jogos-destroy');
+  Route::get('{jogo}/edit','edit')->name('jogos-edit');
+  Route::put('{jogo}', 'update')->name('jogos-update');
+  Route::delete('{jogo}', 'destroy')->name('jogos-destroy');
 
 });
 
